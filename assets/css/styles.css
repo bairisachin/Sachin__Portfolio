@@ -22,6 +22,7 @@
   --container-color: #fff;
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+  --bullet-color: #000;
 
   /*========== Font and typography ==========*/
   --body-font: "Poppins", sans-serif;
@@ -65,8 +66,13 @@
     --h3-font-size: 1.25rem;
     --normal-font-size: 1rem;
     --small-font-size: 0.875rem;
-    --smaller-font-size: 813rem;
+    --smaller-font-size: 0.813rem;
   }
+}
+
+*::selection {
+  background-color: var(--first-color);
+  color: #fff;
 }
 
 /*========== Variables Dark theme ==========*/
@@ -80,6 +86,7 @@ body.dark-theme {
   --container-color: hsl(var(--hue-color), 29%, 16%);
   --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+  --bullet-color: #fff;
 }
 
 /*========== Button Dark/Light ==========*/
@@ -481,8 +488,18 @@ img {
 
 .skills__titles {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  align-items: center;
   margin-bottom: var(--mb-0-5);
+}
+
+.skills__titles::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--bullet-color);
+  margin-right: 8px;
 }
 
 .skills__name {
@@ -838,13 +855,7 @@ img {
 .footer__links {
   display: flex;
   flex-direction: column;
-  row-gap: 1, 5rem;
-}
-
-.footer__links:hover {
-  font-size: 1.25rem;
-  margin-right: var(--mb-1-5);
-  transform: scale(1.5);
+  row-gap: 1.5rem;
 }
 
 .footer__social:hover {
@@ -1137,7 +1148,7 @@ img {
 }
 
 /* For large devices */
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
   .header,
   .main,
   .footer__container {
@@ -1183,4 +1194,4 @@ img {
   .contact__inputs {
     grid-template-columns: repeat(2, 1fr);
   }
-}
+} */
